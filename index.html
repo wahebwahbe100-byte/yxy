@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BHV Immobilienverwaltung GmbH</title>
+  <meta
+    name="description"
+    content="BHV Immobilienverwaltung GmbH – professionelle WEG-Verwaltung, Mietverwaltung und Sondereigentumsverwaltung."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --navy: #07192d;
+      --navy-2: #0d2742;
+      --navy-3: #123252;
+      --gold: #c99a3a;
+      --gold-2: #e2bf6b;
+      --gold-dark: #9f7624;
+      --cream: #fbf7ef;
+      --paper: #ffffff;
+      --soft: #f5f0e6;
+      --ink: #152238;
+      --muted: #68717d;
+      --border: rgba(201, 154, 58, 0.25);
+      --shadow: 0 22px 60px rgba(7, 25, 45, 0.14);
+      --shadow-gold: 0 18px 44px rgba(201, 154, 58, 0.22);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(226, 191, 107, 0.18), transparent 32rem),
+        linear-gradient(180deg, #ffffff 0%, var(--cream) 42%, #ffffff 100%);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(1180px, calc(100% - 36px)); margin: auto; }
+
+    .topbar {
+      background: linear-gradient(90deg, var(--navy), var(--navy-2));
+      color: rgba(255,255,255,0.86);
+      font-size: 14px;
+      padding: 10px 0;
+    }
+    .topbar .container { display: flex; justify-content: flex-end; gap: 28px; flex-wrap: wrap; }
+    .topbar span { display: inline-flex; align-items: center; gap: 8px; }
+    .topbar b { color: var(--gold-2); font-weight: 900; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(201,154,58,0.18);
+      box-shadow: 0 10px 32px rgba(7,25,45,0.06);
+    }
+    .navbar { height: 92px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
+    .brand img {
+      width: 128px;
+      height: auto;
+      padding: 6px;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 10px 26px rgba(7,25,45,0.08);
+    }
+    .brand-text strong {
+      display: block;
+      color: var(--navy);
+      font-size: 19px;
+      line-height: 1.05;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .brand-text small {
+      display: block;
+      margin-top: 5px;
+      color: var(--gold-dark);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    nav { display: flex; align-items: center; gap: 24px; font-size: 14px; font-weight: 800; }
+    nav a { position: relative; padding: 34px 0; color: var(--navy); }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 26px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-2));
+      transition: width .25s ease;
+    }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      color: var(--navy);
+      box-shadow: var(--shadow-gold);
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 22px 50px rgba(201,154,58,.32); }
+    .btn-outline {
+      border: 1px solid rgba(201,154,58,.55);
+      background: rgba(255,255,255,.78);
+      color: var(--navy);
+    }
+    .btn-outline:hover { background: var(--navy); color: #fff; border-color: var(--navy); transform: translateY(-3px); }
+    .btn-dark { background: var(--navy); color: #fff; box-shadow: 0 16px 34px rgba(7,25,45,.2); }
+
+    .menu-btn {
+      display: none;
+      width: 50px;
+      height: 50px;
+      border: 1px solid rgba(201,154,58,.3);
+      border-radius: 18px;
+      background: linear-gradient(135deg, #fff, var(--cream));
+      color: var(--navy);
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(7,25,45,.1);
+      position: relative;
+    }
+    .menu-icon, .menu-icon::before, .menu-icon::after {
+      position: absolute;
+      left: 50%;
+      width: 22px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--navy);
+      transform: translateX(-50%);
+      transition: .25s ease;
+    }
+    .menu-icon { top: 50%; }
+    .menu-icon::before, .menu-icon::after { content: ""; }
+    .menu-icon::before { top: -7px; }
+    .menu-icon::after { top: 7px; }
+    .menu-btn.is-open { background: var(--navy); }
+    .menu-btn.is-open .menu-icon { background: transparent; }
+    .menu-btn.is-open .menu-icon::before, .menu-btn.is-open .menu-icon::after { top: 0; background: var(--gold-2); }
+    .menu-btn.is-open .menu-icon::before { transform: translateX(-50%) rotate(45deg); }
+    .menu-btn.is-open .menu-icon::after { transform: translateX(-50%) rotate(-45deg); }
+
+    .hero {
+      position: relative;
+      min-height: 720px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      isolation: isolate;
+      background:
+        linear-gradient(90deg, rgba(7,25,45,.93) 0%, rgba(7,25,45,.84) 42%, rgba(7,25,45,.48) 70%, rgba(7,25,45,.18) 100%),
+        url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1900&q=82") center right / cover no-repeat;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 34px;
+      z-index: -1;
+      border: 1px solid rgba(226,191,107,.24);
+      border-radius: 34px;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      bottom: -140px;
+      width: 520px;
+      height: 520px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(226,191,107,.3), transparent 62%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.05fr .72fr;
+      gap: 56px;
+      align-items: center;
+      padding: 92px 0;
+    }
+    .hero-content { color: #fff; }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+      color: var(--gold-2);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .kicker::before, .kicker::after {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-2));
+    }
+    .kicker::after { background: linear-gradient(90deg, var(--gold-2), transparent); }
+    .hero h1 {
+      max-width: 760px;
+      margin-bottom: 24px;
+      font-size: clamp(44px, 6.8vw, 82px);
+      line-height: .98;
+      letter-spacing: -.06em;
+    }
+    .hero h1 span { color: var(--gold-2); display: block; }
+    .hero p {
+      max-width: 610px;
+      margin-bottom: 34px;
+      color: rgba(255,255,255,.82);
+      font-size: 19px;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; }
+    .hero-card {
+      justify-self: end;
+      width: min(390px, 100%);
+      padding: 26px;
+      border: 1px solid rgba(226,191,107,.28);
+      border-radius: 30px;
+      background: rgba(255,255,255,.1);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 26px 80px rgba(0,0,0,.26);
+      color: #fff;
+    }
+    .hero-card img {
+      width: 190px;
+      margin: 4px auto 22px;
+      padding: 12px;
+      border-radius: 20px;
+      background: #fff;
+    }
+    .hero-card h3 { margin-bottom: 10px; font-size: 23px; color: var(--gold-2); }
+    .hero-card p { margin: 0 0 20px; font-size: 15px; color: rgba(255,255,255,.78); }
+    .hero-points { display: grid; gap: 10px; list-style: none; }
+    .hero-points li { display: flex; gap: 10px; align-items: flex-start; color: rgba(255,255,255,.86); font-weight: 700; }
+    .hero-points li::before { content: "◆"; color: var(--gold-2); font-size: 12px; margin-top: 3px; }
+
+    section { padding: 96px 0; }
+    .section-head { max-width: 760px; margin: 0 auto 48px; text-align: center; }
+    .eyebrow {
+      margin-bottom: 10px;
+      color: var(--gold-dark);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .section-head h2 {
+      color: var(--navy);
+      font-size: clamp(31px, 4vw, 50px);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+    }
+    .section-head p:not(.eyebrow) { margin-top: 14px; color: var(--muted); font-size: 17px; }
+    .line {
+      width: 76px;
+      height: 3px;
+      margin: 22px auto 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-2));
+    }
+
+    .services { background: linear-gradient(180deg, var(--cream), #fff); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--navy), var(--gold));
+    }
+    .card:hover { transform: translateY(-9px); box-shadow: 0 28px 70px rgba(7,25,45,.18); }
+    .service-thumb-link { display: block; overflow: hidden; }
+    .service-thumb {
+      width: 100%;
+      height: 225px;
+      object-fit: cover;
+      transition: transform .35s ease, filter .35s ease;
+      background: var(--soft);
+    }
+    .service-thumb-link:hover .service-thumb { transform: scale(1.055); filter: saturate(1.08); }
+    .card-body { padding: 30px; }
+    .card h3 { margin-bottom: 10px; color: var(--navy); font-size: 23px; }
+    .card p { margin-bottom: 20px; color: var(--muted); }
+    .more { color: var(--gold-dark); font-weight: 900; }
+
+    .benefits { background: var(--navy); color: #fff; position: relative; overflow: hidden; }
+    .benefits::before {
+      content: "";
+      position: absolute;
+      inset: auto -120px -220px auto;
+      width: 560px;
+      height: 560px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(226,191,107,.18), transparent 65%);
+    }
+    .benefits .section-head h2 { color: #fff; }
+    .benefits .section-head p:not(.eyebrow) { color: rgba(255,255,255,.72); }
+    .benefit-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .benefit {
+      min-height: 250px;
+      padding: 30px;
+      border: 1px solid rgba(226,191,107,.22);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
+      backdrop-filter: blur(10px);
+    }
+    .benefit-thumb {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      margin-bottom: 18px;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.18));
+    }
+    .benefit h3 { margin-bottom: 10px; color: var(--gold-2); font-size: 21px; }
+    .benefit p { color: rgba(255,255,255,.72); font-size: 15px; }
+
+    .trust-strip { padding: 0; background: #fff; }
+    .trust-strip-box {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      overflow: hidden;
+      margin-top: -44px;
+      border-radius: 30px;
+      background: #fff;
+      box-shadow: 0 30px 80px rgba(7,25,45,.16);
+      border: 1px solid var(--border);
+    }
+    .trust-item {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 22px;
+      align-items: center;
+      min-height: 156px;
+      padding: 34px 38px;
+      border-right: 1px solid rgba(201,154,58,.18);
+    }
+    .trust-item:last-child { border-right: 0; }
+    .trust-icon { width: 58px; height: 58px; object-fit: contain; }
+    .trust-number {
+      display: block;
+      color: var(--navy);
+      font-size: 40px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -.04em;
+      margin-bottom: 8px;
+    }
+    .trust-title {
+      display: block;
+      color: var(--gold-dark);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .trust-item p { color: var(--muted); font-size: 14px; line-height: 1.55; }
+
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: step; }
+    .step {
+      position: relative;
+      padding: 32px 28px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.84);
+      box-shadow: 0 18px 50px rgba(7,25,45,.08);
+    }
+    .step::after {
+      counter-increment: step;
+      content: "0" counter(step);
+      position: absolute;
+      right: 22px;
+      top: 18px;
+      color: rgba(201,154,58,.2);
+      font-size: 48px;
+      line-height: 1;
+      font-weight: 900;
+    }
+    .step-icon { width: 60px; height: 60px; object-fit: contain; margin-bottom: 18px; }
+    .step h3 { margin-bottom: 8px; color: var(--navy); font-size: 20px; }
+    .step p { color: var(--muted); font-size: 15px; }
+
+    .about-section { background: linear-gradient(180deg, #fff, var(--cream)); }
+    .about-panel {
+      display: grid;
+      grid-template-columns: 1.55fr .85fr;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 34px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .about-image-side {
+      min-height: 440px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 54px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.94), rgba(255,255,255,.66)),
+        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1500&q=82') center / cover no-repeat;
+    }
+    .about-content { max-width: 640px; position: relative; z-index: 1; }
+    .about-content h2 {
+      margin-bottom: 16px;
+      color: var(--navy);
+      font-size: clamp(28px, 3.6vw, 46px);
+      line-height: 1.08;
+      letter-spacing: -.04em;
+      text-transform: uppercase;
+    }
+    .about-content p { max-width: 580px; margin-bottom: 12px; color: #344155; }
+    .about-signature {
+      display: inline-block;
+      margin-top: 16px;
+      color: var(--gold-dark);
+      font-family: "Great Vibes", cursive;
+      font-size: 56px;
+      font-weight: 400;
+      line-height: 1;
+    }
+    .about-contact {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 44px 36px;
+      background: linear-gradient(180deg, var(--navy), var(--navy-2));
+      color: #fff;
+    }
+    .about-contact h3 { margin-bottom: 18px; color: var(--gold-2); font-size: 28px; text-transform: uppercase; letter-spacing: .08em; }
+    .about-contact-list { display: grid; gap: 13px; margin-bottom: 24px; }
+    .about-contact-list a { display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,.84); font-weight: 700; }
+    .about-contact-list b { color: var(--gold-2); font-size: 19px; }
+
+    .request {
+      background:
+        radial-gradient(circle at left center, rgba(226,191,107,.15), transparent 32rem),
+        #fff;
+    }
+    .request-grid { display: grid; grid-template-columns: .95fr 1.25fr; gap: 48px; align-items: start; }
+    .request-text h2 { margin-bottom: 18px; color: var(--navy); font-size: clamp(32px, 4vw, 48px); line-height: 1.08; letter-spacing: -.04em; }
+    .request-text p { color: var(--muted); font-size: 17px; }
+    .contact-list { display: grid; gap: 13px; margin-top: 24px; color: var(--navy); font-weight: 800; }
+    .contact-list div { display: flex; gap: 12px; align-items: center; }
+    .contact-list b { color: var(--gold-dark); }
+    form {
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    label { display: block; margin-bottom: 7px; color: var(--navy); font-size: 14px; font-weight: 900; }
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid rgba(7,25,45,.14);
+      border-radius: 14px;
+      padding: 14px 15px;
+      font-family: inherit;
+      font-size: 15px;
+      color: var(--ink);
+      background: #fffdf9;
+      outline: none;
+      transition: .22s ease;
+    }
+    input:focus, textarea:focus, select:focus { border-color: var(--gold); box-shadow: 0 0 0 4px rgba(201,154,58,.16); background: #fff; }
+    textarea { min-height: 126px; resize: vertical; }
+    .full { grid-column: 1 / -1; }
+    form .btn { width: 100%; margin-top: 18px; font-size: 16px; }
+
+    footer {
+      padding: 62px 0 24px;
+      background: linear-gradient(135deg, var(--navy), #030b15);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    footer::before {
+      content: "";
+      position: absolute;
+      left: -140px;
+      top: -140px;
+      width: 360px;
+      height: 360px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(226,191,107,.18), transparent 64%);
+    }
+    .footer-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 34px;
+      margin-bottom: 36px;
+    }
+    footer img { width: 150px; margin-bottom: 14px; padding: 10px; border-radius: 18px; background: #fff; }
+    footer h4 { margin-bottom: 14px; color: var(--gold-2); }
+    footer p, footer a, footer li { color: rgba(255,255,255,.74); font-size: 14px; }
+    footer ul { display: grid; gap: 7px; list-style: none; }
+    .copyright { position: relative; padding-top: 20px; border-top: 1px solid rgba(226,191,107,.2); color: rgba(255,255,255,.55); font-size: 13px; text-align: center; }
+
+    .smooth-reveal, .reveal-step { opacity: 0; transform: translateY(16px); transition: opacity .55s ease-out, transform .55s ease-out; }
+    .smooth-reveal.is-visible, .reveal-step.is-visible { opacity: 1; transform: translateY(0); }
+    .reveal-step:nth-child(2) { transition-delay: .08s; }
+    .reveal-step:nth-child(3) { transition-delay: .16s; }
+    .reveal-step:nth-child(4) { transition-delay: .24s; }
+
+    @media (max-width: 1040px) {
+      .menu-btn { display: block; }
+      nav {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 18px;
+        right: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+        max-height: 0;
+        padding: 0 12px;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-10px) scale(.98);
+        pointer-events: none;
+        border: 1px solid rgba(201,154,58,.24);
+        border-radius: 24px;
+        background: rgba(255,255,255,.97);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 28px 60px rgba(7,25,45,.18);
+        transition: max-height .35s ease, padding .25s ease, opacity .25s ease, transform .25s ease;
+      }
+      nav.open { max-height: 460px; padding: 12px; opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+      nav a { padding: 14px; border-radius: 15px; }
+      nav a::after { display: none; }
+      nav a:hover, nav a.active { background: rgba(201,154,58,.12); color: var(--gold-dark); }
+      .navbar > .btn { display: none; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-card { justify-self: start; }
+      .cards, .process-grid, .trust-strip-box { grid-template-columns: 1fr; }
+      .benefit-grid { grid-template-columns: 1fr 1fr; }
+      .trust-item { border-right: 0; border-bottom: 1px solid rgba(201,154,58,.18); }
+      .trust-item:last-child { border-bottom: 0; }
+      .request-grid, .footer-grid, .about-panel { grid-template-columns: 1fr; }
+      .about-contact { min-height: 300px; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar { display: none; }
+      .navbar { height: 84px; gap: 10px; }
+      .container { width: min(100% - 26px, 1180px); }
+      .brand { gap: 9px; flex: 1 1 auto; }
+      .brand img { width: clamp(76px, 24vw, 98px); border-radius: 14px; }
+      .brand-text { min-width: 0; max-width: calc(100vw - 150px); overflow: hidden; }
+      .brand-text strong { font-size: clamp(12px, 3.7vw, 15px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .brand-text small { font-size: clamp(7px, 2.1vw, 9px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .hero { min-height: calc(100svh - 84px); }
+      .hero::before { inset: 14px; border-radius: 24px; }
+      .hero-grid { padding: 72px 0 54px; gap: 28px; }
+      .hero h1 { font-size: clamp(40px, 12vw, 56px); text-align: center; }
+      .hero p { text-align: center; font-size: 17px; }
+      .kicker { width: 100%; justify-content: center; font-size: 11px; }
+      .hero-actions { justify-content: center; }
+      .hero-actions .btn { width: min(100%, 280px); }
+      .hero-card { margin: auto; text-align: center; }
+      .hero-points li { text-align: left; }
+      section { padding: 70px 0; }
+      .benefit-grid, .form-grid { grid-template-columns: 1fr; }
+      .about-image-side { min-height: auto; padding: 44px 24px; }
+      .about-contact { padding: 38px 24px; }
+      .trust-strip-box { margin-top: -28px; }
+      .trust-item { grid-template-columns: 58px 1fr; gap: 18px; padding: 28px 22px; }
+      .trust-icon { width: 48px; height: 48px; }
+      .trust-number { font-size: 32px; }
+      form { padding: 22px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+      .smooth-reveal, .reveal-step { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="container">
+      <span><b>✉</b> info@boehme-hv.de</span>
+      <span><b>☎</b> +4917610870618</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container navbar">
+      <a class="brand" href="#start" aria-label="Hausverwaltung Böhme">
+        <img src="assets/logo.png" alt="Hausverwaltung Böhme Logo" />
+        <span class="brand-text">
+          <strong>Hausverwaltung Böhme</strong>
+          <small>Sondereigentum · Mietverwaltung · WEG-Verwaltung</small>
+        </span>
+      </a>
+
+      <nav id="menu">
+        <a class="active" href="#start">Start</a>
+        <a href="leistungen.html">Leistungen</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#vorteile">Vorteile</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="#ueber-uns">Über uns</a>
+      </nav>
+
+      <a href="kontakt.html" class="btn btn-primary">Anfrage stellen</a>
+
+      <button
+        class="menu-btn"
+        type="button"
+        aria-label="Menü öffnen"
+        aria-expanded="false"
+        aria-controls="menu"
+        onclick="toggleMenu(this)"
+      >
+        <span class="menu-icon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="start">
+      <div class="container hero-grid">
+        <div class="hero-content smooth-reveal">
+          <p class="kicker">Vertrauen · Werterhalt · Service</p>
+          <h1>
+            Immobilienverwaltung
+            <span>auf Premium-Niveau</span>
+          </h1>
+          <p>
+            BHV Immobilienverwaltung GmbH betreut Immobilien mit klaren Abläufen,
+            persönlicher Kommunikation und vorausschauendem Blick auf den Werterhalt.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="leistungen.html">Leistungen ansehen</a>
+            <a class="btn btn-outline" href="kontakt.html">Kontakt aufnehmen</a>
+          </div>
+        </div>
+
+        <aside class="hero-card smooth-reveal" aria-label="BHV Kurzprofil">
+          <img src="assets/logo.png" alt="BHV Logo" />
+          <h3>Ihre Immobilie in sicheren Händen</h3>
+          <p>Strukturiert, transparent und zuverlässig – passend zu Eigentümern, WEGs und Vermietern.</p>
+          <ul class="hero-points">
+            <li>WEG-Verwaltung</li>
+            <li>Mietverwaltung</li>
+            <li>Sondereigentumsverwaltung</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="services" id="leistungen">
+      <div class="container">
+        <div class="section-head smooth-reveal">
+          <p class="eyebrow">Unsere Leistungen</p>
+          <h2>Passende Lösungen für jede Immobilie</h2>
+          <p>Professionelle Verwaltung mit System, Erfahrung und direkter Kommunikation.</p>
+          <div class="line"></div>
+        </div>
+
+        <div class="cards">
+          <article class="card smooth-reveal">
+            <a class="service-thumb-link" href="leistungen.html#weg" aria-label="Mehr zur WEG-Verwaltung">
+              <img class="service-thumb" src="assets/weg.png" alt="WEG-Verwaltung" />
+            </a>
+            <div class="card-body">
+              <h3>WEG-Verwaltung</h3>
+              <p>Eigentümerversammlungen, Beschlussumsetzung, Wirtschaftspläne, Hausgeldabrechnungen und Objektbetreuung.</p>
+              <a class="more" href="leistungen.html#weg">Mehr erfahren →</a>
+            </div>
+          </article>
+
+          <article class="card smooth-reveal">
+            <a class="service-thumb-link" href="leistungen.html#mietverwaltung" aria-label="Mehr zur Mietverwaltung">
+              <img class="service-thumb" src="assets/mietverwaltung.png" alt="Mietverwaltung" />
+            </a>
+            <div class="card-body">
+              <h3>Mietverwaltung</h3>
+              <p>Mieterkommunikation, Mietzahlungen, Betriebskostenabrechnung, Vertragsmanagement und Instandhaltung.</p>
+              <a class="more" href="leistungen.html#mietverwaltung">Mehr erfahren →</a>
+            </div>
+          </article>
+
+          <article class="card smooth-reveal">
+            <a class="service-thumb-link" href="leistungen.html#sondereigentum" aria-label="Mehr zum Sondereigentum">
+              <img class="service-thumb" src="assets/sondereigentum.png" alt="Sondereigentum" />
+            </a>
+            <div class="card-body">
+              <h3>Sondereigentum</h3>
+              <p>Individuelle Betreuung einzelner Einheiten mit Kontrolle, klarer Kommunikation und regelmäßiger Information.</p>
+              <a class="more" href="leistungen.html#sondereigentum">Mehr erfahren →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits" id="vorteile">
+      <div class="container">
+        <div class="section-head smooth-reveal">
+          <p class="eyebrow">Ihre Vorteile</p>
+          <h2>Darauf können Sie sich verlassen</h2>
+          <p>Klares Design, klare Prozesse und ein Auftritt im Stil des BHV-Logos.</p>
+        </div>
+
+        <div class="benefit-grid">
+          <div class="benefit smooth-reveal">
+            <img class="benefit-thumb" src="assets/zuverlaessigkeit.png" alt="" />
+            <h3>Zuverlässigkeit</h3>
+            <p>Verbindliche Prozesse und klare Zuständigkeiten für jedes Objekt.</p>
+          </div>
+          <div class="benefit smooth-reveal">
+            <img class="benefit-thumb" src="assets/ansprechpartner.png" alt="" />
+            <h3>Ansprechpartner</h3>
+            <p>Direkte Kommunikation und persönliche Betreuung statt anonymer Verwaltung.</p>
+          </div>
+          <div class="benefit smooth-reveal">
+            <img class="benefit-thumb" src="assets/transparenz.png" alt="" />
+            <h3>Transparenz</h3>
+            <p>Nachvollziehbare Abrechnungen, klare Dokumente und verständliche Abläufe.</p>
+          </div>
+          <div class="benefit smooth-reveal">
+            <img class="benefit-thumb" src="assets/werterhalt.png" alt="" />
+            <h3>Werterhalt</h3>
+            <p>Vorausschauende Verwaltung und koordinierte Objektbetreuung.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Kennzahlen">
+      <div class="container">
+        <div class="trust-strip-box smooth-reveal">
+          <div class="trust-item">
+            <img class="trust-icon" src="assets/einheiten.png" alt="" />
+            <div>
+              <strong class="trust-number count-up" data-count="20" data-suffix="+">0</strong>
+              <span class="trust-title">Jahre Erfahrung</span>
+              <p>Zuverlässige und strukturierte Betreuung von Eigentümern und Immobilien.</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <img class="trust-icon" src="assets/reaktion.png" alt="" />
+            <div>
+              <strong class="trust-number">Schnelle</strong>
+              <span class="trust-title">Reaktion</span>
+              <p>Klare Kommunikation und zeitnahe Bearbeitung Ihrer Anliegen.</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <img class="trust-icon" src="assets/zuverlaessig.png" alt="" />
+            <div>
+              <strong class="trust-number count-up" data-count="100" data-suffix="%">0</strong>
+              <span class="trust-title">Zuverlässigkeit</span>
+              <p>Transparente Abläufe, auf die Sie sich verlassen können.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ablauf">
+      <div class="container">
+        <div class="section-head smooth-reveal">
+          <p class="eyebrow">So arbeiten wir</p>
+          <h2>Einfacher Ablauf bis zur Betreuung</h2>
+          <div class="line"></div>
+        </div>
+
+        <div class="process-grid">
+          <div class="step reveal-step">
+            <img class="step-icon" src="assets/anfrage.png" alt="" />
+            <h3>Anfrage</h3>
+            <p>Sie senden uns die wichtigsten Informationen zu Ihrer Immobilie.</p>
+          </div>
+          <div class="step reveal-step">
+            <img class="step-icon" src="assets/analyse.png" alt="" />
+            <h3>Analyse</h3>
+            <p>Wir prüfen Objekt, Anforderungen und Verwaltungsbedarf.</p>
+          </div>
+          <div class="step reveal-step">
+            <img class="step-icon" src="assets/angebot.png" alt="" />
+            <h3>Angebot</h3>
+            <p>Sie erhalten ein transparentes, unverbindliches Angebot.</p>
+          </div>
+          <div class="step reveal-step">
+            <img class="step-icon" src="assets/start.png" alt="" />
+            <h3>Start</h3>
+            <p>Nach Beauftragung übernehmen wir strukturiert die Verwaltung.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" id="ueber-uns">
+      <div class="container">
+        <div class="about-panel smooth-reveal">
+          <div class="about-image-side">
+            <div class="about-content">
+              <p class="eyebrow">Über uns</p>
+              <h2>BHV Immobilienverwaltung</h2>
+              <p>BHV Immobilienverwaltung steht für transparente, persönliche und zuverlässige Betreuung Ihrer Immobilie.</p>
+              <p>Mit über 20 Jahren Erfahrung sorgen wir für klare Abläufe, gute Kommunikation und langfristigen Werterhalt.</p>
+              <span class="about-signature">BHV Böhme</span>
+            </div>
+          </div>
+
+          <div class="about-contact">
+            <h3>Kontakt</h3>
+            <div class="about-contact-list">
+              <a href="tel:+4917610870618"><b>☎</b>+4917610870618</a>
+              <a href="mailto:info@boehme-hv.de"><b>✉</b>info@boehme-hv.de</a>
+            </div>
+            <a class="btn btn-primary" href="kontakt.html">Jetzt kontaktieren →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="request" id="anfrage">
+      <div class="container request-grid">
+        <div class="request-text smooth-reveal">
+          <p class="eyebrow">Anfrage</p>
+          <h2>Starten Sie mit einer unverbindlichen Anfrage</h2>
+          <p>Teilen Sie uns kurz mit, welche Art von Verwaltung Sie benötigen. Wir melden uns strukturiert und persönlich zurück.</p>
+          <div class="contact-list">
+            <div><b>✉</b> info@boehme-hv.de</div>
+            <div><b>☎</b> +4917610870618</div>
+          </div>
+        </div>
+
+        <form class="smooth-reveal" onsubmit="sendMail(event)">
+          <div class="form-grid">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+            <div>
+              <label for="email">E-Mail</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+            <div>
+              <label for="phone">Telefon</label>
+              <input id="phone" name="phone" type="tel" />
+            </div>
+            <div>
+              <label for="units">Einheiten</label>
+              <input id="units" name="units" type="text" placeholder="z. B. 12" />
+            </div>
+            <div class="full">
+              <label for="service">Leistung</label>
+              <select id="service" name="service">
+                <option>WEG-Verwaltung</option>
+                <option>Mietverwaltung</option>
+                <option>Sondereigentumsverwaltung</option>
+                <option>Objektbetreuung</option>
+              </select>
+            </div>
+            <div class="full">
+              <label for="message">Nachricht</label>
+              <textarea id="message" name="message" placeholder="Kurze Beschreibung Ihrer Immobilie"></textarea>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit">Anfrage per E-Mail senden</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="assets/logo.png" alt="BHV Logo" />
+          <p>BHV Immobilienverwaltung GmbH – zuverlässig, transparent und persönlich.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#start">Start</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="#ueber-uns">Über uns</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Leistungen</h4>
+          <ul>
+            <li>WEG-Verwaltung</li>
+            <li>Mietverwaltung</li>
+            <li>Sondereigentum</li>
+            <li>Objektbetreuung</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <ul>
+            <li><a href="mailto:info@boehme-hv.de">info@boehme-hv.de</a></li>
+            <li><a href="tel:+4917610870618">+4917610870618</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">© 2026 BHV Immobilienverwaltung GmbH. Alle Rechte vorbehalten.</div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu(button) {
+      const menu = document.getElementById("menu");
+      const isOpen = menu.classList.toggle("open");
+      button.classList.toggle("is-open", isOpen);
+      button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      button.setAttribute("aria-label", isOpen ? "Menü schließen" : "Menü öffnen");
+    }
+
+    document.addEventListener("click", (event) => {
+      const menu = document.getElementById("menu");
+      const button = document.querySelector(".menu-btn");
+      if (!menu || !button || !menu.classList.contains("open")) return;
+      if (menu.contains(event.target) || button.contains(event.target)) return;
+      menu.classList.remove("open");
+      button.classList.remove("is-open");
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-label", "Menü öffnen");
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+      const menu = document.getElementById("menu");
+      const button = document.querySelector(".menu-btn");
+      if (!menu || !button) return;
+      menu.classList.remove("open");
+      button.classList.remove("is-open");
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-label", "Menü öffnen");
+    });
+
+    function sendMail(event) {
+      event.preventDefault();
+      const form = event.target;
+      const subject = encodeURIComponent("Neue Anfrage über die BHV Website");
+      const body = encodeURIComponent(
+        `Name: ${form.name.value}\n` +
+        `E-Mail: ${form.email.value}\n` +
+        `Telefon: ${form.phone.value}\n` +
+        `Einheiten: ${form.units.value}\n` +
+        `Leistung: ${form.service.value}\n\n` +
+        `Nachricht:\n${form.message.value}`
+      );
+      window.location.href = `mailto:info@boehme-hv.de?subject=${subject}&body=${body}`;
+    }
+
+    function animateCounters() {
+      const counters = document.querySelectorAll(".count-up");
+      const duration = 1400;
+      counters.forEach((counter) => {
+        if (counter.dataset.animated === "true") return;
+        counter.dataset.animated = "true";
+        const target = Number(counter.dataset.count);
+        const suffix = counter.dataset.suffix || "";
+        const startTime = performance.now();
+        function updateCounter(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const easedProgress = 1 - Math.pow(1 - progress, 3);
+          const currentValue = Math.floor(easedProgress * target);
+          counter.textContent = `${currentValue}${suffix}`;
+          if (progress < 1) requestAnimationFrame(updateCounter);
+          else counter.textContent = `${target}${suffix}`;
+        }
+        requestAnimationFrame(updateCounter);
+      });
+    }
+
+    const trustStrip = document.querySelector(".trust-strip");
+    if (trustStrip) {
+      const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounters();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.35 });
+      counterObserver.observe(trustStrip);
+    }
+
+    function revealSite() {
+      const revealItems = document.querySelectorAll(".smooth-reveal, .reveal-step");
+      if (!revealItems.length) return;
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: "0px 0px -20px 0px" });
+      revealItems.forEach((item) => observer.observe(item));
+    }
+    revealSite();
+  </script>
+</body>
+</html>
