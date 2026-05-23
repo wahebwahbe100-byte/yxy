@@ -1001,19 +1001,20 @@
         min-height: calc(100svh - 84px);
         align-items: center;
         background:
+          radial-gradient(circle at 50% 47%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.56) 34%, rgba(255, 255, 255, 0.18) 62%, rgba(255, 255, 255, 0.04) 100%),
           linear-gradient(
             90deg,
-            rgba(255, 255, 255, 0.86) 0%,
-            rgba(255, 255, 255, 0.68) 42%,
-            rgba(255, 255, 255, 0.20) 68%,
-            rgba(255, 255, 255, 0.04) 100%
+            rgba(255, 255, 255, 0.90) 0%,
+            rgba(255, 255, 255, 0.72) 42%,
+            rgba(255, 255, 255, 0.26) 68%,
+            rgba(255, 255, 255, 0.06) 100%
           ),
           url("assets/hero-mo.png") center / cover no-repeat;
       }
 
       .hero::after {
         height: 100%;
-        background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.22) 100%);
+        background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.32) 100%);
       }
 
       .hero .container {
@@ -1037,6 +1038,7 @@
         font-size: clamp(38px, 10.8vw, 50px);
         line-height: 0.98;
         letter-spacing: -0.045em;
+        text-shadow: 0 3px 14px rgba(255, 255, 255, 0.92);
       }
 
       .hero h1 span {
@@ -1046,9 +1048,11 @@
       .hero p {
         max-width: 345px;
         margin: 0 auto 28px;
+        color: #263846;
         font-size: 18px;
         line-height: 1.65;
-        font-weight: 600;
+        font-weight: 800;
+        text-shadow: 0 2px 12px rgba(255, 255, 255, 0.95);
       }
 
       .hero-actions {
