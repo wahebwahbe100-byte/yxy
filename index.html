@@ -631,7 +631,7 @@
 
     .benefit {
       display: grid;
-      grid-template-columns: 84px 1fr;
+      grid-template-columns: 94px 1fr;
       gap: 20px;
       align-items: start;
       min-height: 220px;
@@ -650,15 +650,20 @@
     }
 
     .benefit-thumb {
-      width: 72px;
-      height: 72px;
-      object-fit: contain;
+      width: 82px;
+      height: 82px;
+      display: block;
+      object-fit: cover;
       object-position: center;
       margin: 0;
-      padding: 8px;
+      padding: 0;
       border-radius: 18px;
-      background: #f8fcff;
+      background: transparent;
       border: 1px solid var(--border);
+      filter: none;
+      opacity: 1;
+      transform: translateZ(0);
+      backface-visibility: hidden;
     }
 
     .benefit-text {
@@ -1439,7 +1444,7 @@
 
         <div class="benefit-grid">
           <div class="benefit">
-            <video class="benefit-thumb" autoplay muted loop playsinline aria-label="Zuverlässigkeit"><source src="assets/zuverlaessigkeit.webm" type="video/webm"></video>
+            <video class="benefit-thumb" autoplay muted loop playsinline preload="auto" aria-label="Zuverlässigkeit"><source src="assets/zuverlaessigkeit.webm" type="video/webm"></video>
             <div class="benefit-text">
               <h3>Zuverlässigkeit</h3>
               <p>Verbindliche Prozesse und klare Zuständigkeiten.</p>
@@ -1447,7 +1452,7 @@
           </div>
 
           <div class="benefit">
-            <video class="benefit-thumb" autoplay muted loop playsinline aria-label="Ansprechpartner"><source src="assets/ansprechpartner.webm" type="video/webm"></video>
+            <video class="benefit-thumb" autoplay muted loop playsinline preload="auto" aria-label="Ansprechpartner"><source src="assets/ansprechpartner.webm" type="video/webm"></video>
             <div class="benefit-text">
               <h3 class="small-title">Ansprechpartner</h3>
               <p>Direkte Kommunikation und persönliche Betreuung.</p>
@@ -1455,7 +1460,7 @@
           </div>
 
           <div class="benefit">
-            <video class="benefit-thumb" autoplay muted loop playsinline aria-label="Transparenz"><source src="assets/transparenz.webm" type="video/webm"></video>
+            <video class="benefit-thumb" autoplay muted loop playsinline preload="auto" aria-label="Transparenz"><source src="assets/transparenz.webm" type="video/webm"></video>
             <div class="benefit-text">
               <h3>Transparenz</h3>
               <p>Nachvollziehbare Abrechnungen und Dokumente.</p>
@@ -1463,7 +1468,7 @@
           </div>
 
           <div class="benefit">
-            <video class="benefit-thumb" autoplay muted loop playsinline aria-label="Werterhalt"><source src="assets/werterhalt.webm" type="video/webm"></video>
+            <video class="benefit-thumb" autoplay muted loop playsinline preload="auto" aria-label="Werterhalt"><source src="assets/werterhalt.webm" type="video/webm"></video>
             <div class="benefit-text">
               <h3>Werterhalt</h3>
               <p>Vorausschauende Verwaltung Ihrer Immobilie.</p>
