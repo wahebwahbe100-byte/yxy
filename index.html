@@ -970,12 +970,37 @@
       margin-bottom: 34px;
     }
 
-    footer img {
-      width: 145px;
-      margin-bottom: 14px;
-      padding: 8px;
-      border-radius: 12px;
+    .footer-brand {
+      max-width: 310px;
+    }
+
+    .footer-logo-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 132px;
+      height: 92px;
+      margin-bottom: 16px;
+      border-radius: 18px;
       background: var(--white);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .footer-logo-box img {
+      width: 96px;
+      height: auto;
+      margin: 0;
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .footer-brand p {
+      max-width: 300px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.75;
     }
 
     footer h4 {
@@ -1590,9 +1615,11 @@
   <footer>
     <div class="container">
       <div class="footer-grid">
-        <div>
-          <img src="assets/logo.png" alt="BHV Logo" />
-          <p>BHV Immobilienverwaltung GmbH – zuverlässig, transparent und persönlich.</p>
+        <div class="footer-brand">
+          <span class="footer-logo-box">
+            <img src="assets/logo.png" alt="Hausverwaltung Böhme Logo" />
+          </span>
+          <p>Hausverwaltung Böhme – zuverlässig, transparent und persönlich.</p>
         </div>
 
         <div>
