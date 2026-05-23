@@ -492,6 +492,30 @@
       background: var(--blue);
     }
 
+    .services-cta {
+      margin-top: 54px;
+      text-align: center;
+    }
+
+    .services-cta .services-head-action {
+      border-radius: 18px;
+      padding: 15px 24px;
+      font-size: 11px;
+      box-shadow: 0 16px 34px rgba(0, 80, 178, 0.18);
+    }
+
+    .services-cta .services-head-action::after {
+      content: "→";
+      margin-left: 8px;
+      font-size: 18px;
+      line-height: 1;
+      transition: transform 0.22s ease;
+    }
+
+    .services-cta .services-head-action:hover::after {
+      transform: translateX(4px);
+    }
+
     .services {
       background: var(--light);
     }
@@ -1810,6 +1834,10 @@
 
             <a class="more" href="leistungen.html#sondereigentum">Mehr erfahren →</a>
           </article>
+        </div>
+
+        <div class="services-cta">
+          <a class="btn btn-primary services-head-action" href="leistungen.html">Leistungen ansehen</a>
         </div>
       </div>
     </section>
