@@ -2040,9 +2040,9 @@
         <aside class="service-aside smooth-reveal">
           <a class="service-image-link" href="kontakt.html" aria-label="Anfrage zur Verwaltung von Eigentümergemeinschaften senden">
             <div class="service-slider" data-slider>
-              <img class="slider-image is-active" src="assets/WEG1.png" alt="WEG-Verwaltung 1" />
-              <img class="slider-image" src="assets/WEG2.png" alt="WEG-Verwaltung 2" />
-              <img class="slider-image" src="assets/WEG3.png" alt="WEG-Verwaltung 3" />
+              <img class="slider-image is-active" src="assets/WEG1.jpg" alt="WEG-Verwaltung 1" />
+              <img class="slider-image" src="assets/WEG2.jpg" alt="WEG-Verwaltung 2" />
+              <img class="slider-image" src="assets/WEG3.jpg" alt="WEG-Verwaltung 3" />
             </div>
           </a>
           <h3>Verwaltung von Eigentümergemeinschaften</h3>
@@ -2071,8 +2071,8 @@
           <a class="service-image-link" href="kontakt.html" aria-label="Anfrage zur Vermietungsbetreuung senden">
             <div class="service-slider" data-slider>
               <img class="slider-image is-active" src="assets/Mietverwaltung1.png" alt="Mietverwaltung 1" />
-              <img class="slider-image" src="assets/Mietverwaltung2.png" alt="Mietverwaltung 2" />
-              <img class="slider-image" src="assets/Mietverwaltung3.png" alt="Mietverwaltung 3" />
+              <img class="slider-image" src="assets/Mietverwaltung2.jpg" alt="Mietverwaltung 2" />
+              <img class="slider-image" src="assets/Mietverwaltung3.jpg" alt="Mietverwaltung 3" />
             </div>
           </a>
           <h3>Vermietungsbetreuung</h3>
@@ -2207,6 +2207,11 @@
       }
 
       slider.querySelectorAll('.slider-image').forEach((img) => {
+        const originalSrc = img.getAttribute('src');
+        const baseSrc = originalSrc.replace(/\.(png|jpg|jpeg|webp)$/i, '');
+        const fallbackSrcs = [originalSrc, `${baseSrc}.jpg`, `${baseSrc}.jpeg`, `${baseSrc}.webp`];
+        let fallbackIndex = 0;
+
         function removeBrokenSlide() {
           img.remove();
           const slides = getSlides();
@@ -2219,11 +2224,20 @@
           showSlide(index);
         }
 
-        if (img.complete && img.naturalWidth === 0) {
+        function tryNextImageFormat() {
+          fallbackIndex += 1;
+          if (fallbackIndex < fallbackSrcs.length) {
+            img.src = fallbackSrcs[fallbackIndex];
+            return;
+          }
           removeBrokenSlide();
         }
 
-        img.addEventListener('error', removeBrokenSlide);
+        if (img.complete && img.naturalWidth === 0) {
+          tryNextImageFormat();
+        }
+
+        img.addEventListener('error', tryNextImageFormat);
       });
 
       setInterval(() => {
