@@ -351,7 +351,7 @@
       margin-bottom: 22px;
       color: var(--dark);
       font-family: Inter, Arial, sans-serif;
-      font-size: clamp(28px, 8.6vw, 40px);
+      font-size: clamp(27px, 8.2vw, 38px);
       font-style: normal;
       font-weight: 900;
       line-height: 1.02;
@@ -1325,6 +1325,14 @@
     }
 
     @media (max-width: 620px) {
+      .hero {
+        min-height: calc(100svh - 84px);
+        align-items: stretch;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.93) 0%, rgba(255, 255, 255, 0.72) 38%, rgba(255, 255, 255, 0.20) 68%, rgba(255, 255, 255, 0.02) 100%),
+          linear-gradient(180deg, rgba(238, 247, 255, 0.08) 0%, rgba(255, 255, 255, 0.14) 68%, rgba(255, 255, 255, 0.46) 100%),
+          url("assets/hero-mo.png") 78% center / auto 100% no-repeat;
+      }
       .topbar {
         display: none;
       }
@@ -1435,16 +1443,16 @@
 
       .hero-content {
         width: 100%;
-        max-width: 315px;
+        max-width: 300px;
         margin: 0;
         padding: 54px 0 90px;
         text-align: left;
       }
 
       .hero h1 {
-        max-width: 265px;
+        max-width: 255px;
         margin: 0 0 20px;
-        font-size: clamp(28px, 8.6vw, 40px);
+        font-size: clamp(27px, 8.2vw, 38px);
         line-height: 1.02;
         letter-spacing: -0.065em;
         text-shadow: 0 4px 18px rgba(255, 255, 255, 0.98);
@@ -1455,7 +1463,7 @@
       }
 
       .hero p {
-        max-width: 235px;
+        max-width: 230px;
         margin: 0 0 30px;
         padding-top: 22px;
         color: #263846;
@@ -1475,7 +1483,7 @@
         grid-template-columns: 1fr;
         justify-content: stretch;
         gap: 14px;
-        max-width: 245px;
+        max-width: 235px;
       }
 
       .hero-actions .btn {
@@ -1551,25 +1559,54 @@
         font-size: 34px;
       }
 
-      /* Mobile hero: smaller left-aligned text like the reference screenshot */
+      /* Final mobile hero correction: image proportion fixed, text stays readable on the left */
+      .hero {
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.93) 0%, rgba(255, 255, 255, 0.72) 38%, rgba(255, 255, 255, 0.20) 68%, rgba(255, 255, 255, 0.02) 100%),
+          linear-gradient(180deg, rgba(238, 247, 255, 0.08) 0%, rgba(255, 255, 255, 0.14) 68%, rgba(255, 255, 255, 0.46) 100%),
+          url("assets/hero-mo.png") 78% center / auto 100% no-repeat;
+      }
+
+      .hero::before {
+        background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.26) 100%);
+      }
+
       .hero-content {
-        max-width: 315px;
+        max-width: 300px;
       }
 
       .hero h1 {
-        max-width: 265px;
-        font-size: clamp(28px, 8.6vw, 40px);
+        max-width: 255px;
+        font-size: clamp(27px, 8.2vw, 38px);
+      }
+
+      .hero p {
+        max-width: 230px;
+      }
+
+      .hero-actions {
+        max-width: 235px;
+      }
+
+      /* Mobile hero: smaller left-aligned text like the reference screenshot */
+      .hero-content {
+        max-width: 300px;
+      }
+
+      .hero h1 {
+        max-width: 255px;
+        font-size: clamp(27px, 8.2vw, 38px);
         line-height: 1.02;
       }
 
       .hero p {
-        max-width: 235px;
+        max-width: 230px;
         font-size: clamp(11px, 3.25vw, 14px);
         line-height: 1.55;
       }
 
       .hero-actions {
-        max-width: 245px;
+        max-width: 235px;
       }
 
       .hero-actions .btn {
