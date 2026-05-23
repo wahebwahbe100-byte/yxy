@@ -1941,6 +1941,44 @@
     }
   </style>
 
+
+  <style>
+    /* AUTO IMAGE SLIDER FOR SERVICE SECTIONS */
+    .service-image-link {
+      position: relative !important;
+    }
+
+    .service-slider {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .service-slider img {
+      position: absolute;
+      inset: 0;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center !important;
+      opacity: 0;
+      transform: scale(1.025);
+      transition: opacity 0.75s ease, transform 1.1s ease;
+    }
+
+    .service-slider img.is-active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 1;
+    }
+
+    .service-image-link span {
+      position: absolute !important;
+      z-index: 3 !important;
+    }
+  </style>
+
 </head>
 <body>
   <div class="topbar">
@@ -2001,7 +2039,11 @@
       <div class="container service-layout">
         <aside class="service-aside smooth-reveal">
           <a class="service-image-link" href="kontakt.html" aria-label="Anfrage zur Verwaltung von Eigentümergemeinschaften senden">
-            <img src="assets/weg.png" alt="WEG-Verwaltung" />
+            <div class="service-slider" data-slider>
+              <img class="slider-image is-active" src="assets/WEG1.png" alt="WEG-Verwaltung 1" />
+              <img class="slider-image" src="assets/WEG2.png" alt="WEG-Verwaltung 2" />
+              <img class="slider-image" src="assets/WEG3.png" alt="WEG-Verwaltung 3" />
+            </div>
             <span>Direkt anfragen →</span>
           </a>
           <h3>Verwaltung von Eigentümergemeinschaften</h3>
@@ -2024,37 +2066,15 @@
       </div>
     </section>
 
-    <section class="service-detail" id="sondereigentum">
-      <div class="container service-layout">
-        <aside class="service-aside smooth-reveal">
-          <a class="service-image-link" href="kontakt.html" aria-label="Anfrage zur Betreuung einzelner Einheiten senden">
-            <img src="assets/sondereigentum.png" alt="Sondereigentumsverwaltung" />
-            <span>Direkt anfragen →</span>
-          </a>
-          <h3>Betreuung einzelner Einheiten</h3>
-          <ul class="check-list">
-            <li>Laufende Betreuung Ihrer Einheit</li>
-            <li>Abstimmung mit Mietern und Eigentümern</li>
-            <li>Überblick über Zahlungen und Dokumente</li>
-            <li>Kurze Wege durch objektnahe Betreuung</li>
-          </ul>
-        </aside>
-        <div class="service-text smooth-reveal">
-          <p class="service-kicker">02 / Wohnung & Einheit</p>
-          <h2 class="service-title">Betreuung einzelner Einheiten</h2>
-          <p class="service-lead">Für Eigentümer, die ihre einzelne Wohnung oder Gewerbeeinheit nicht täglich selbst betreuen möchten, übernehmen wir die laufende Koordination zuverlässig im Hintergrund.</p>
-          <p>Wir behalten Mieteranliegen, Unterlagen, Rückfragen und Abstimmungen im Blick. Sie erhalten keine unnötige Informationsflut, sondern klare Rückmeldungen zu den Punkten, die wirklich wichtig sind.</p>
-          <p>Besonders effizient wird die Betreuung, wenn Objektkenntnis bereits vorhanden ist. Abläufe, Ansprechpartner und technische Besonderheiten können schneller eingeordnet werden – das spart Zeit und vermeidet Missverständnisse.</p>
-          <a class="more" href="kontakt.html">Unverbindlich anfragen →</a>
-        </div>
-      </div>
-    </section>
-
     <section class="service-detail" id="mietverwaltung">
       <div class="container service-layout">
         <aside class="service-aside smooth-reveal">
           <a class="service-image-link" href="kontakt.html" aria-label="Anfrage zur Vermietungsbetreuung senden">
-            <img src="assets/mietverwaltung.png" alt="Mietverwaltung" />
+            <div class="service-slider" data-slider>
+              <img class="slider-image is-active" src="assets/Mietverwaltung1.png" alt="Mietverwaltung 1" />
+              <img class="slider-image" src="assets/Mietverwaltung2.png" alt="Mietverwaltung 2" />
+              <img class="slider-image" src="assets/Mietverwaltung3.png" alt="Mietverwaltung 3" />
+            </div>
             <span>Direkt anfragen →</span>
           </a>
           <h3>Vermietungsbetreuung</h3>
@@ -2072,6 +2092,36 @@
           <p>Wir unterstützen bei der täglichen Betreuung: Rückfragen werden geordnet, Zahlungen beobachtet, Abrechnungen vorbereitet und notwendige Arbeiten mit passenden Ansprechpartnern abgestimmt.</p>
           <p>Der Fokus liegt auf einem stabilen Mietverhältnis und einer ruhigen Objektbetreuung. Eigentümer bleiben informiert, ohne jeden einzelnen Vorgang selbst verfolgen zu müssen.</p>
           <p>Unser Ziel: weniger Aufwand für Sie, klare Kommunikation für Mieter und ein gepflegter Zustand Ihrer Immobilie.</p>
+          <a class="more" href="kontakt.html">Unverbindlich anfragen →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-detail" id="sondereigentum">
+      <div class="container service-layout">
+        <aside class="service-aside smooth-reveal">
+          <a class="service-image-link" href="kontakt.html" aria-label="Anfrage zur Betreuung einzelner Einheiten senden">
+            <div class="service-slider" data-slider>
+              <img class="slider-image is-active" src="assets/Sondereigentum1.png" alt="Sondereigentumsverwaltung 1" />
+              <img class="slider-image" src="assets/Sondereigentum2.png" alt="Sondereigentumsverwaltung 2" />
+              <img class="slider-image" src="assets/Sondereigentum3.png" alt="Sondereigentumsverwaltung 3" />
+            </div>
+            <span>Direkt anfragen →</span>
+          </a>
+          <h3>Betreuung einzelner Einheiten</h3>
+          <ul class="check-list">
+            <li>Laufende Betreuung Ihrer Einheit</li>
+            <li>Abstimmung mit Mietern und Eigentümern</li>
+            <li>Überblick über Zahlungen und Dokumente</li>
+            <li>Kurze Wege durch objektnahe Betreuung</li>
+          </ul>
+        </aside>
+        <div class="service-text smooth-reveal">
+          <p class="service-kicker">02 / Wohnung & Einheit</p>
+          <h2 class="service-title">Betreuung einzelner Einheiten</h2>
+          <p class="service-lead">Für Eigentümer, die ihre einzelne Wohnung oder Gewerbeeinheit nicht täglich selbst betreuen möchten, übernehmen wir die laufende Koordination zuverlässig im Hintergrund.</p>
+          <p>Wir behalten Mieteranliegen, Unterlagen, Rückfragen und Abstimmungen im Blick. Sie erhalten keine unnötige Informationsflut, sondern klare Rückmeldungen zu den Punkten, die wirklich wichtig sind.</p>
+          <p>Besonders effizient wird die Betreuung, wenn Objektkenntnis bereits vorhanden ist. Abläufe, Ansprechpartner und technische Besonderheiten können schneller eingeordnet werden – das spart Zeit und vermeidet Missverständnisse.</p>
           <a class="more" href="kontakt.html">Unverbindlich anfragen →</a>
         </div>
       </div>
@@ -2143,18 +2193,50 @@
       revealItems.forEach((item) => smoothObserver.observe(item));
     }
 
-    document.querySelectorAll('.service-image-link img').forEach((img) => {
-      function hideBrokenImage() {
-        const wrap = img.closest('.service-image-link');
-        if (wrap) wrap.style.display = 'none';
+
+    document.querySelectorAll('[data-slider]').forEach((slider) => {
+      let index = 0;
+
+      function getSlides() {
+        return Array.from(slider.querySelectorAll('.slider-image'));
       }
 
-      if (img.complete && img.naturalWidth === 0) {
-        hideBrokenImage();
+      function showSlide(nextIndex) {
+        const slides = getSlides();
+        if (!slides.length) return;
+        slides.forEach((slide, slideIndex) => {
+          slide.classList.toggle('is-active', slideIndex === nextIndex);
+        });
       }
 
-      img.addEventListener('error', hideBrokenImage);
+      slider.querySelectorAll('.slider-image').forEach((img) => {
+        function removeBrokenSlide() {
+          img.remove();
+          const slides = getSlides();
+          if (!slides.length) {
+            const wrap = slider.closest('.service-image-link');
+            if (wrap) wrap.style.display = 'none';
+            return;
+          }
+          index = index % slides.length;
+          showSlide(index);
+        }
+
+        if (img.complete && img.naturalWidth === 0) {
+          removeBrokenSlide();
+        }
+
+        img.addEventListener('error', removeBrokenSlide);
+      });
+
+      setInterval(() => {
+        const slides = getSlides();
+        if (slides.length <= 1) return;
+        index = (index + 1) % slides.length;
+        showSlide(index);
+      }, 3200);
     });
+
 
     smoothRevealSite();
   </script>
