@@ -412,6 +412,28 @@
       font-size: 22px;
     }
 
+
+    .service-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .service-mini-icon {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      flex: 0 0 34px;
+      padding: 4px;
+      border-radius: 50%;
+      background: var(--light);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0, 80, 178, 0.08);
+    }
+      box-shadow: 0 6px 14px rgba(0, 80, 178, 0.12);
+      flex: 0 0 34px;
+    }
+
     .card p {
       margin-bottom: 18px;
       color: #53616a;
@@ -1214,7 +1236,7 @@
         <div class="cards">
           <article class="card">
             <a class="service-thumb-link" href="leistungen.html#weg" aria-label="Mehr zur WEG-Verwaltung"><img class="service-thumb" src="assets/weg.png" alt="WEG-Verwaltung" /></a>
-            <h3>WEG-Verwaltung</h3>
+            <h3 class="service-title"><img class="service-mini-icon" src="assets/WEG-Verwaltungsmei.png" alt="" /><span>WEG-Verwaltung</span></h3>
             <p>
               Organisation von Eigentümerversammlungen, Beschlussumsetzung,
               Wirtschaftspläne, Hausgeldabrechnungen und Objektbetreuung.
@@ -1224,7 +1246,7 @@
 
           <article class="card">
             <a class="service-thumb-link" href="leistungen.html#mietverwaltung" aria-label="Mehr zur Mietverwaltung"><img class="service-thumb" src="assets/mietverwaltung.png" alt="Mietverwaltung" /></a>
-            <h3>Mietverwaltung</h3>
+            <h3 class="service-title"><img class="service-mini-icon" src="assets/Mietverwaltungsmei.png" alt="" /><span>Mietverwaltung</span></h3>
             <p>
               Mieterkommunikation, Mietzahlungen, Betriebskostenabrechnung,
               Vertragsmanagement und Koordination von Instandhaltung.
@@ -1234,7 +1256,7 @@
 
           <article class="card">
             <a class="service-thumb-link" href="leistungen.html#sondereigentum" aria-label="Mehr zum Sondereigentum"><img class="service-thumb" src="assets/sondereigentum.png" alt="Sondereigentum" /></a>
-            <h3>Sondereigentum</h3>
+            <h3 class="service-title"><img class="service-mini-icon" src="assets/Sondereigentumsmei.png" alt="" /><span>Sondereigentum</span></h3>
             <p>
               Individuelle Betreuung einzelner Einheiten mit klarer
               Kommunikation, Kontrolle und regelmäßiger Information.
