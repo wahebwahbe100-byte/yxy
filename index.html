@@ -418,18 +418,33 @@
 
 
     .hero-actions .btn-icon {
-      width: 34px;
-      height: 34px;
-      flex: 0 0 34px;
-      object-fit: contain;
+      width: 24px;
+      height: 24px;
+      flex: 0 0 24px;
       margin-right: 12px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 7px;
-      border-radius: 12px;
-      background: #ffffff;
-      box-shadow: 0 8px 18px rgba(0, 52, 136, 0.16);
+      color: currentColor;
+    }
+
+    .hero-actions .btn-icon svg {
+      width: 24px;
+      height: 24px;
+      display: block;
+      stroke: currentColor;
+    }
+
+    .hero-actions .btn-primary .btn-icon {
+      color: #ffffff;
+    }
+
+    .hero-actions .btn-outline .btn-icon {
+      color: var(--blue);
+    }
+
+    .hero-actions .btn-outline:hover .btn-icon {
+      color: #ffffff;
     }
 
     .hero-actions .btn::after {
@@ -1330,33 +1345,37 @@
 
       .brand img {
         flex: 0 0 auto;
-        width: clamp(74px, 24vw, 96px);
+        width: clamp(58px, 18vw, 76px);
       }
 
       .brand-text {
         display: block;
+        flex: 1 1 auto;
         min-width: 0;
-        max-width: calc(100vw - 150px);
-        overflow: hidden;
+        max-width: calc(100vw - 118px);
+        overflow: visible;
       }
 
       .brand-text strong {
-        font-size: clamp(12px, 3.7vw, 15px);
+        display: block;
+        font-size: clamp(11px, 3.25vw, 14px);
         line-height: 1.08;
         letter-spacing: 0.01em;
         white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        overflow: visible;
+        text-overflow: clip;
       }
 
       .brand-text small {
+        display: block;
         margin-top: 3px;
-        font-size: clamp(7px, 2.15vw, 9px);
-        line-height: 1.25;
-        letter-spacing: 0.02em;
+        color: var(--blue);
+        font-size: clamp(6px, 1.85vw, 8px);
+        line-height: 1;
+        letter-spacing: 0;
         white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        overflow: visible;
+        text-overflow: clip;
       }
 
       .menu-btn {
@@ -1599,8 +1618,25 @@
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="leistungen.html"><img class="btn-icon" src="assets/mer.png" alt="" aria-hidden="true" />Leistungen ansehen</a>
-            <a class="btn btn-outline" href="kontakt.html"><img class="btn-icon" src="assets/mesage.png" alt="" aria-hidden="true" />Kontakt aufnehmen</a>
+            <a class="btn btn-primary" href="leistungen.html">
+              <span class="btn-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 21V7.5C4 6.67 4.67 6 5.5 6H10V3.5C10 2.67 10.67 2 11.5 2H18.5C19.33 2 20 2.67 20 3.5V21" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M2.75 21H21.25" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M7 10H8.5M7 13H8.5M7 16H8.5M13 6H14.5M16.5 6H18M13 9.5H14.5M16.5 9.5H18M13 13H14.5M16.5 13H18M13 16.5H14.5M16.5 16.5H18" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </span>
+              Leistungen ansehen
+            </a>
+            <a class="btn btn-outline" href="kontakt.html">
+              <span class="btn-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 20C16.97 20 21 16.64 21 12.5C21 8.36 16.97 5 12 5C7.03 5 3 8.36 3 12.5C3 14.14 3.63 15.65 4.7 16.88L4 21L8.13 19.38C9.3 19.78 10.61 20 12 20Z" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8.5 12.5H8.51M12 12.5H12.01M15.5 12.5H15.51" stroke-width="2.4" stroke-linecap="round"/>
+                </svg>
+              </span>
+              Kontakt aufnehmen
+            </a>
           </div>
         </div>
       </div>
