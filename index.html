@@ -1409,7 +1409,7 @@
       .hero {
         min-height: calc(100svh - 84px);
         align-items: stretch;
-        background: url("assets/hero-mo.png") center right / cover no-repeat;
+        background: url("assets/hero-mo.png") center right / auto 108% no-repeat;
       }
 
       .hero::before {
@@ -1417,13 +1417,13 @@
       }
 
       .hero::after {
-        right: -26%;
-        left: -26%;
-        height: 128px;
+        right: -24%;
+        left: -24%;
+        height: 104px;
         background:
-          linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.96) 54%),
-          radial-gradient(70% 110% at 50% 100%, rgba(0, 114, 213, 0.36), transparent 70%);
-        clip-path: ellipse(72% 48% at 50% 100%);
+          linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.58) 68%),
+          radial-gradient(70% 110% at 50% 100%, rgba(0, 114, 213, 0.24), transparent 72%);
+        clip-path: ellipse(72% 42% at 50% 100%);
       }
 
       .hero .container {
