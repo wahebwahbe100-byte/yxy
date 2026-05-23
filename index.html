@@ -601,12 +601,33 @@
       pointer-events: none;
     }
 
+    .step::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      border: 1px solid rgba(86, 194, 255, 0.18);
+      box-shadow:
+        0 0 12px rgba(0, 114, 213, 0.10),
+        0 0 24px rgba(86, 194, 255, 0.06);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
     .step:hover {
       transform: translateY(-8px);
       border-color: rgba(0, 114, 213, 0.38);
       box-shadow:
         0 26px 58px rgba(0, 52, 136, 0.16),
+        0 0 18px rgba(0, 114, 213, 0.12),
         inset 0 1px 0 rgba(255, 255, 255, 1);
+    }
+
+    .step:hover::after {
+      border-color: rgba(86, 194, 255, 0.28);
+      box-shadow:
+        0 0 16px rgba(0, 114, 213, 0.16),
+        0 0 32px rgba(86, 194, 255, 0.10);
     }
 
     .step-icon,
